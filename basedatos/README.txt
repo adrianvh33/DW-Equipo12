@@ -1,0 +1,1 @@
+Hi. This is the folder for application database :)
