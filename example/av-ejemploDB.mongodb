@@ -1,0 +1,45 @@
+use("Research-MT-db");
+db.usuarios.insertOne({
+    id_usuario: 1144000000,
+    nombre: "Juanito",
+    apellido: "Perez",
+    telefono: "3181231212",
+    carrera: "Ingenieria Electronica",
+    id_proyectos: [1,2,3],
+    rol:"estudiante",
+    horas: 4,
+    fecha_ingreso: new Date('2020-06-01T08:00:00Z') 
+})
+
+db.proyectos.insertOne({
+    id_proyecto: 1,
+    nombre: "Dipositivo no invasivo para detectar diabetes",
+    id_usuarios:[1144000000,1144000001],
+    director: 1144000002,
+    presupuesto: 1000000,
+    descripcion : "Se diseñara e implementara un dispositivo capas detectar la diabetes",
+    objectivos:[
+        {
+            "general": "Desarrollar un dispositivo capaz de dectar la diabetes de manera no invasiva",
+            "espesificos": {
+                "primero": "Establecer el estado del arte",
+                "segundo": "Diseñar el  dispositivo",
+                "tercero": "implementar el dispositivo",
+                "cuarto" : "validar el dispositivo"
+            }
+        }],
+    estado: "inicio",
+    fechas:[
+        {
+            "fecha_inicio": new Date('2020-06-01T08:00:00Z'),
+            "fecha_final":  new Date('2021-06-01T08:00:00Z')
+    }],
+    fase:[
+        {"inicio":"fase_iniciada", "avances":["Proyecto creado","Estudiante asignado"]},
+        {"desarrollo": "fase_no_iniciada", "avances":[]},
+        {"documentacion": "fase_no_iniciada", "avances":[]},
+        {"entrega": "fase_no_iniciada", "avances":[]},
+        {"finalizacion": "fase_no_iniciada", "avances":[]},
+    ],
+    notas_desempeno:["El proyecto inicio correctamnet"]
+})
