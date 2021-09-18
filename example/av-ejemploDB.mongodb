@@ -43,3 +43,9 @@ db.proyectos.insertOne({
     ],
     notas_desempeno:["El proyecto inicio correctamnet"]
 })
+
+
+use("Research-MT-db");
+db.usuarios.findOne( {id_usuario: 1144000000 } )
+db.proyectos.findOne( {id_proyecto: 1 } )
+
