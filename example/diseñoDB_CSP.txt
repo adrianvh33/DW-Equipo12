@@ -101,12 +101,3 @@ db.proyectos.insertOne(
     "obs_desempeno": ["Se inicio el proyecto en los tiempos establecidos"]
 }
 )
-
-mongosh "mongodb+srv://cluster0.mbrzi.mongodb.net/ResearchMTdb" --username Test
-
-mongodump --uri "mongodb+srv://Test:Csp0619912505.@cluster0.mbrzi.mongodb.net/ResearchMTdb"
-
-mongoexport --uri="mongodb+srv://Test:Csp0619912505.@cluster0.mbrzi.mongodb.net/ResearchMTdb" --collection=sales --out=sales.json
-
-
-mongodb+srv://Test:Csp0619912505.@cluster0.mbrzi.mongodb.net/test
