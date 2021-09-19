@@ -18,24 +18,16 @@ db.proyectos.insertOne(
     "nom_proyecto": "Framework para automatización de pruebas",
     "integrantes": [{
         "id_usuario": "1234567890",
-        "horas": {
-            "$numberInt": "4"
-        }
+        "horas": 4
     }, {
         "id_usuario": "1025695478",
-        "horas": {
-            "$numberInt": "1"
-        }
+        "horas": 4
     }, {
         "id_usuario": "45623985",
-        "horas": {
-            "$numberInt": "9"
-        }
+        "horas": 9
     }],
     "director": "49632110",
-    "presupuesto": {
-        "$numberInt": "1000000"
-    },
+    "presupuesto": 1000000,
     "descripcion": "Se desarrollará una nueva herramienta para facilitar el proceso de automatización de pruebas",
     "objetivos": [{
         "general": "Diseñar y desarrollar un sistema de información que facilite los procesos de automatización de pruebas en la compañía ABCD",
@@ -53,15 +45,11 @@ db.proyectos.insertOne(
     "fases": [{
         "inicio": "En progreso",
         "avances": [{
-            "id_avance": {
-                "$numberInt": "1"
-            },
+            "id_avance": 1,
             "desc_avance": "Proyecto creado",
             "fecha_avance": "2021-07-13"
         }, {
-            "id_avance": {
-                "$numberInt": "2"
-            },
+            "id_avance": 2,
             "desc_avance": "Asignación de estudiante",
             "fecha_avance": "2021-07-20"
         }]
