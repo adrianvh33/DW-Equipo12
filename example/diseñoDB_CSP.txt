@@ -7,11 +7,7 @@ db.usuarios.insertOne(
     "tel_celular": "3115555555",
     "carrera": "Ingeniería de sistemas",
     "rol": "Estudiante",
-    "fecha_ingreso": {
-        "$date": {
-            "$numberLong": "1609477200000"
-        }
-    }
+    "fecha_ingreso": "2021-01-01"
 }
 )
 
@@ -51,16 +47,8 @@ db.proyectos.insertOne(
     }],
     "estado": "inicio",
     "fechas": [{
-        "fecha_inicio": {
-            "$date": {
-                "$numberLong": "1622523600000"
-            }
-        },
-        "fecha_fin": {
-            "$date": {
-                "$numberLong": "1635656400000"
-            }
-        }
+        "fecha_inicio": "2021-06-01",
+        "fecha_fin": "2021-10-31"
     }],
     "fases": [{
         "inicio": "En progreso",
@@ -69,21 +57,13 @@ db.proyectos.insertOne(
                 "$numberInt": "1"
             },
             "desc_avance": "Proyecto creado",
-            "fecha_avance": {
-                "$date": {
-                    "$numberLong": "1626152400000"
-                }
-            }
+            "fecha_avance": "2021-07-13"
         }, {
             "id_avance": {
                 "$numberInt": "2"
             },
             "desc_avance": "Asignación de estudiante",
-            "fecha_avance": {
-                "$date": {
-                    "$numberLong": "1626757200000"
-                }
-            }
+            "fecha_avance": "2021-07-20"
         }]
     }, {
         "desarrollo": "No iniciado",
