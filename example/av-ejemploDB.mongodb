@@ -1,8 +1,4 @@
 use("Research-MT-db");
-db.usuarios.findOne( {id_usuario: 1144000000 } )
-db.proyectos.findOne( {id_proyecto: 1 } )
-
-use("Research-MT-db");
 db.usuarios.insertOne({
     id_usuario: 1144000000,
     nombre: "Juanito",
@@ -68,3 +64,7 @@ db.proyectos.insertOne({
         {"fecha_nota":new Date(), "nota":"El proyecto inicio correctamente"}
         ]
 })
+
+use("Research-MT-db");
+db.usuarios.findOne( {id_usuario: 1144000000 } )
+db.proyectos.findOne( {id_proyecto: 1 } )
