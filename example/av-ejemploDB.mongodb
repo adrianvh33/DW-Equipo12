@@ -3,19 +3,22 @@ db.usuarios.insertOne({
     id_usuario: 1144000000,
     nombre: "Juanito",
     apellido: "Perez",
-    telefono: "3181231212",
+    telefono: 3181231212,
     carrera: "Ingenieria Electronica",
-    id_proyectos: [1,2,3],
+    id_proyectos: [2],
     rol:"estudiante",
-    horas: 4,
-    fecha_ingreso: new Date('2020-06-01T08:00:00Z') 
+    fecha_ingreso: new Date() 
 })
 
+use("Research-MT-db");
 db.proyectos.insertOne({
-    id_proyecto: 1,
+    id_proyecto: 2,
     nombre: "Dipositivo no invasivo para detectar diabetes",
-    id_usuarios:[1144000000,1144000001],
-    director: 1144000002,
+    integrantes:[
+        {"id_usuario":1144000000, "horas":4},
+        {"id_usuario":1234567890, "horas":4},
+        ],
+    director: 49632110,
     presupuesto: 1000000,
     descripcion : "Se diseñara e implementara un dispositivo capas detectar la diabetes",
     objectivos:[
@@ -31,21 +34,37 @@ db.proyectos.insertOne({
     estado: "inicio",
     fechas:[
         {
-            "fecha_inicio": new Date('2020-06-01T08:00:00Z'),
-            "fecha_final":  new Date('2021-06-01T08:00:00Z')
+            "fecha_inicio": new Date(),
+            "fecha_final":  new Date()
     }],
     fase:[
-        {"inicio":"fase_iniciada", "avances":["Proyecto creado","Estudiante asignado"]},
-        {"desarrollo": "fase_no_iniciada", "avances":[]},
-        {"documentacion": "fase_no_iniciada", "avances":[]},
-        {"entrega": "fase_no_iniciada", "avances":[]},
-        {"finalizacion": "fase_no_iniciada", "avances":[]},
-    ],
-    notas_desempeno:["El proyecto inicio correctamnet"]
-})
+        {
+            "inicio":"fase_iniciada", 
+            "avances":
+                    [
+                {"id_avance":1,  "fecha_avance":new Date(), "avance": "Proyecto creado" },
+                {"id_avance":2,  "fecha_avance":new Date(), "avance": "Asignación de estudiante" },
+                    ]
+        },
 
+        {
+            "desarrollo": "fase_no_iniciada", 
+            "avances":[]},
+        {
+            "documentacion": "fase_no_iniciada", 
+            "avances":[]},
+        {
+            "entrega": "fase_no_iniciada", 
+            "avances":[]},
+        {
+            "finalizacion": "fase_no_iniciada", 
+            "avances":[]},
+    ],
+    notas_desempeno:[
+        {"fecha_nota":new Date(), "nota":"El proyecto inicio correctamente"}
+        ]
+})
 
 use("Research-MT-db");
 db.usuarios.findOne( {id_usuario: 1144000000 } )
 db.proyectos.findOne( {id_proyecto: 1 } )
-
