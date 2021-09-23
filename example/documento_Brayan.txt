@@ -1,0 +1,104 @@
+use("Research-MT-db");
+db.usuarios.insertOne({
+    id_usuario: 1,
+    nombre: "Sutano",
+    apellido: "Onatus",
+    telefono: 3120456789,
+    carrera: "Ingenieria Aero espacial",
+    id_proyectos: [1],
+    rol:"estudiante",
+    fecha_ingreso: new Date() 
+})
+
+use("Research-MT-db");
+db.proyectos.insertOne({
+    id_proyecto: 1,
+    nombre: "Estudiar los efectos de la microgravedad en ratones bebes",
+    integrantes: [
+        {
+            "id_usuario": 1,
+            "horas": 40
+        }
+    ],
+    director: 007,
+    presupuesto: 6050000,
+    descripcion : "Se realizarán exprimentos en ratones bebes con entorno de microgravedad",
+    objetivos: [
+        {
+            "general": "Ver como afecta a un organismo vertebrado la microgravedad desde la concepción hasta los primeros años de nacido",
+            "específicos": [
+                {
+                    "descripción": "Determinar si un raton puede nacer en una situación de microgravedad"
+                },
+                {
+                    "descripción": "Determinar que diferencias tiene con raton que nacio en condiciones normales"
+                }
+            ]
+        }
+    ],
+    estado: "desarrollo",
+    fechas: {
+        "fecha_inicio": new Date(),
+        "fecha_final":  new Date()
+    },
+    fase: [
+        {
+            "nombre": "inicio",
+            "estado": "terminado",
+            "avances": [
+                {
+                    "id_avance": 1,
+                    "fecha_avance":new Date(),
+                    "avance": "Se aprobó el proyecto"
+                },
+                {
+                    "id_avance": 2,
+                    "fecha_avance":new Date(),
+                    "avance": "Asignación de estudiante"
+                },
+            ]
+        },
+	    {
+            "nombre": "desarrollo",
+            "estado": "iniciado",
+            "avances": [
+                {
+                    "id_avance": 1,
+                    "fecha_avance":new Date(),
+                    "avance": "Se empezo crianza"
+                },
+                {
+                    "id_avance": 2,
+                    "fecha_avance":new Date(),
+                    "avance": "Se retraso primera simulación"
+                },
+            ]
+        },
+	    {
+            "nombre": "documentacion",
+            "estado": "no_iniciado",
+            "avances": []
+        },
+	    {
+            "nombre": "entrega",
+            "estado": "no_iniciado",
+            "avances": []
+        },
+        {
+                "nombre": "finalizacion",
+                "estado": "no_iniciado",
+                "avances": []
+        }
+    ],
+    notas_desempeno: [
+            {
+                "fecha_nota":new Date(),
+                "nota": "El proyecto presento dificultades en su planteamiento"
+            }
+        ]
+})
+
+use("Research-MT-db");
+db.usuarios.findOne({id_usuario : 1})
+db.proyectos.findOne( { "fase.nombre": "desarrollo"})
+
