@@ -1,19 +1,32 @@
-use("Research-MT-db");
-db.usuarios.insertOne({
-    id_usuario: 1144000000,
-    nombre: "Juanito",
-    apellido: "Perez",
-    telefono: 3181231212,
-    carrera: "Ingenieria Electronica",
-    id_proyectos: [2],
-    rol:"estudiante",
-    fecha_ingreso: new Date() 
-})
+var expect = require('chai').expect
+var User = require('../userModel');
+var Proyecto = require('../proyectoModel');
 
-use("Research-MT-db");
-db.proyectos.insertOne({
-    id_proyecto: 2,
-    nombre: "Dipositivo no invasivo para detectar diabetes",
+describe('#userModel test their validations', function(){
+
+    it('Should be invalid if name is empty', function( done ){
+      var user1 = new User({
+        id_usuario: 1234567890,
+        correo:  "correo1@correo.com",
+        apellido: "Perez",
+        password: "password",
+        telefono: 3115555555,
+        carrera: "Ingeniería de sistemas",
+        id_proyectos: [1,2],
+        rol:"estudiante",
+        fecha_ingreso: new Date() 
+      })
+  
+      user1.validate(function(err){
+        expect( err.errors.nombre ).to.exist;
+        done();
+      })
+    })  
+
+    it('Should be invalid if name is empty', function( done ){
+      var proyecto1 = new Proyecto({
+        id_proyecto: 2,
+    
     integrantes:[
         {"id_usuario":1144000000, "horas":4},
         {"id_usuario":1234567890, "horas":4},
@@ -63,8 +76,15 @@ db.proyectos.insertOne({
     notas_desempeno:[
         {"fecha_nota":new Date(), "nota":"El proyecto inicio correctamente"}
         ]
-})
+      })
+  
+      proyecto1.validate(function(err){
+        expect( err.errors.nombre ).to.exist;
+        done();
+      })
+    }) 
 
-use("Research-MT-db");
-db.usuarios.findOne( {id_usuario: 1144000000 } )
-db.proyectos.findOne( {id_proyecto: 1 } )
+
+
+
+  })

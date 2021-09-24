@@ -1,0 +1,19 @@
+{
+  "name": "unit_test",
+  "version": "1.0.0",
+  "description": "write some unit tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chia": "0.0.1",
+    "mocha": "^9.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mongoose": "^6.0.7"
+  }
+}
