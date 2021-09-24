@@ -1,11 +1,13 @@
 use("Research-MT-db");
 db.usuarios.insertOne({
-    id_usuario: 1144000000,
-    nombre: "Juanito",
+    id_usuario: 1234567890,
+    correo:  "correo1@correo.com",
+    nombre: "Carlos",
     apellido: "Perez",
-    telefono: 3181231212,
-    carrera: "Ingenieria Electronica",
-    id_proyectos: [2],
+    password: "password",
+    telefono: 3115555555,
+    carrera: "Ingeniería de sistemas",
+    id_proyectos: [1,2],
     rol:"estudiante",
     fecha_ingreso: new Date() 
 })
@@ -69,5 +71,85 @@ use("Research-MT-db");
 db.usuarios.findOne( {id_usuario: 1144000000 } )
 db.proyectos.findOne( {id_proyecto: 1 } )
 
+
+use("Research-MT-db");
+db.usuarios.insertMany([
+    {id_usuario: 1234567890,
+    correo:  "correo1@correo.com",
+    nombre: "Carlos",
+    apellido: "Perez",
+    password: "password",
+    telefono: 3115555555,
+    carrera: "Ingeniería de sistemas",
+    id_proyectos: [1,2],
+    rol:"estudiante",
+    fecha_ingreso: new Date()},
+
+    {id_usuario: 1144000000,
+    correo:  "correo2orreo.com",
+    nombre: "Juanito",
+    apellido: "Perez",
+    password: "password",
+    telefono: 3181231212,
+    carrera: "Ingenieria Electronica",
+    id_proyectos: [1],
+    rol:"estudiante",
+    fecha_ingreso: new Date()},
+
+    {id_usuario: 20304050,
+    correo:  "correo3@correo.com",
+    nombre: "Pedro",
+    apellido: "Martinez",
+    password: "password",
+    telefono: 320129845,
+    carrera: "Ingenieria Electronica",
+    id_proyectos: [3],
+    rol:"estudiante",
+    fecha_ingreso: new Date()},
+
+    {id_usuario: 49632110,
+    correo:  "correo4@correo.com",
+    nombre: "Pancho",
+    apellido: "Panza",
+    password: "password",
+    telefono: 3180000001,
+    carrera: "Ingenieria Electronica",
+    id_proyectos: [1,2],
+    rol:"director",
+    fecha_ingreso: new Date()},
+
+    {id_usuario: 1144000002,
+    correo:  "correo5@correo.com",
+    nombre: "Juliana",
+    apellido: "Oro",
+    password: "password",
+    telefono: 3180000002,
+    carrera: "Ingenieria de sistemas",
+    id_proyectos: [3],
+    rol:"director",
+    fecha_ingreso: new Date()},
+
+    {id_usuario: 1144088597,
+    correo:  "adrianvh34@gmail.com",
+    nombre: "Adrian",
+    apellido: "Valencia",
+    password: "password",
+    telefono: 3188287094,
+    carrera: "Ingenieria electronica",
+    id_proyectos: [3],
+    rol:"administrador",
+    fecha_ingreso: new Date()},
+
+    {id_usuario: 1144000003,
+    correo:  "correo6@correo.com",
+    nombre: "Sutano",
+    apellido: "Onatus",
+    password: "password",
+    telefono: 3120456789,
+    carrera: "Ingenieria Aero espacial",
+    id_proyectos: [1],
+    rol:"estudiante",
+    fecha_ingreso: new Date()},
+    ])
 
 
