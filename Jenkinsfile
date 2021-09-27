@@ -4,7 +4,7 @@ pipeline {
 
   environment {
         ATLAS_CONNECTION = 'mongodb+srv://av-equipo12:av-equipo12@grupo12cluster.gjstf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-        PORT    = '80'
+        PORT    = 5000'
     }
 
   stages {
@@ -22,7 +22,6 @@ pipeline {
     stage('Run deploy') {
       steps {
         echo "Aquí debería enviar a deploy with codepipeli code"
-        sh 'npm start'
       }
     }
   }

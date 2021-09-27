@@ -16,7 +16,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const source = process.env.ATLAS_CONNECTION
-const PORT = process.env.PORT || 80
+const PORT = process.env.PORT || 5000
 
 // establish connection & give yourself a message so you know when its complete
 mongoose.connect(source, {
