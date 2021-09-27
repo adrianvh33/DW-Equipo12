@@ -24,7 +24,7 @@ pipeline {
       steps {
         echo "Aquí debería enviar a deploy with codepipeli code"
         
-        withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+        withCredentials([aws(accessKeyVariable:'AWS_ACCESS_ID',credentialsId:'myAmazon',secretKeyVariable:'AWS_SECRET_ACCESS_KEY')]) {
           sh '''
             aws --version
             aws ec2 describe-instances
