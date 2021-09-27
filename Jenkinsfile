@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Run unit test') {
       steps {
-        npm "test"
+        sh 'npm test'
       }
     }
     stage('Run deploy') {
