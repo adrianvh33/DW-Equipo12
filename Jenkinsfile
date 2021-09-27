@@ -1,11 +1,10 @@
 pipeline {
   agent any
-  tools {nodejs "node"}
   stages {
     stage('Install dependencies') {
       steps {
         echo "instalando"
-        npm "install"
+        sh 'npm install'
       }
     }
     stage('Run unit test') {
