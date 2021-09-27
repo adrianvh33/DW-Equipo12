@@ -22,6 +22,7 @@ pipeline {
     stage('Run deploy') {
       steps {
         echo "Aquí debería enviar a deploy with codepipeli code"
+        sh 'npm start'
       }
     }
   }
