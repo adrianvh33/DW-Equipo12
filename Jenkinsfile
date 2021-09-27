@@ -4,7 +4,7 @@ pipeline {
     stage('Install dependencies') {
       steps {
         echo "instalando"
-        npm 'install'
+        npm "install"
       }
     }
     stage('Run unit test') {
