@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
-        sudo npm 'install'
+        npm 'install'
       }
     }
     stage('Run unit test') {
       steps {
-        sudo npm "test"
+        npm "test"
       }
     }
     stage('Run deploy') {
