@@ -6,7 +6,6 @@ pipeline {
         ATLAS_CONNECTION = 'mongodb+srv://av-equipo12:av-equipo12@grupo12cluster.gjstf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
         PORT    = '5000'
         AWS_DEFAULT_REGION = "us-east-1"
-        THE_BUTLER_SAYS_SO = credentials('myAmazon')
     }
 
   stages {
@@ -26,7 +25,6 @@ pipeline {
         echo "Aquí debería enviar a deploy with codepipeli code"
           sh '''
             aws --version
-            aws ec2 describe-instances
             '''
           
       }
