@@ -3,6 +3,13 @@ pipeline {
   tools {nodejs "DW-Equipo12"}
 
   environment {
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+    }  
+
+
+
+  environment {
         ATLAS_CONNECTION = 'mongodb+srv://av-equipo12:av-equipo12@grupo12cluster.gjstf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
         PORT    = '5000'
     }
@@ -22,6 +29,7 @@ pipeline {
     stage('Run deploy') {
       steps {
         echo "Aquí debería enviar a deploy with codepipeli code"
+        sh 'aws version'
       }
     }
   }
