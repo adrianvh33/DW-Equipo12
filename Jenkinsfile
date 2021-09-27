@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
+        echo "instalando"
         npm 'install'
       }
     }
