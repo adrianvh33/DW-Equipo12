@@ -22,7 +22,10 @@ pipeline {
     stage('Run deploy') {
       steps {
         echo "Aquí debería enviar a deploy with codepipeli code"
-        sh 'aws --version'
+        sh '''
+            aws --version
+            aws ec2 describe-instances
+            '''
       }
     }
   }
