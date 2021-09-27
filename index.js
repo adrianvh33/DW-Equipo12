@@ -33,7 +33,7 @@ const userRoutes = require('./src/controllers/user.controller')
 
 // Set route path on project
 app.get('/', async (req, res) => {
-  res.status(200).json("App is running! OK")
+  res.status(200).json("App is running! OKay")
 })
 
 app.use('/users', userRoutes)
