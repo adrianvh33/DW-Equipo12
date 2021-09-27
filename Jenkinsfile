@@ -4,7 +4,7 @@ pipeline {
 
   environment {
         ATLAS_CONNECTION = 'mongodb+srv://av-equipo12:av-equipo12@grupo12cluster.gjstf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-        PORT    = '5000'
+        PORT    = '80'
     }
 
   stages {
