@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  tools {nodejs "DW-Equipo12"}
   stages {
     stage('Install dependencies') {
       steps {
