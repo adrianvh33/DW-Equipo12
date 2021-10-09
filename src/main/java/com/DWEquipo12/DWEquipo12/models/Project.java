@@ -12,7 +12,7 @@ public class Project {
 
     private String nombre;
     private List<String> integrantes ;
-    private Integer director;
+    private String director;
     private Integer presupuesto;
     private List<String> objetivos;
     private String estado;
@@ -48,11 +48,11 @@ public class Project {
         this.integrantes = integrantes;
     }
 
-    public Integer getDirector() {
+    public String getDirector() {
         return director;
     }
 
-    public void setDirector(Integer director) {
+    public void setDirector(String director) {
         this.director = director;
     }
 
