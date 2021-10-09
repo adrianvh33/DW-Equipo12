@@ -128,7 +128,6 @@ docs/*.html
 docs/tutorials/*.html
 docs/typescript/*.html
 docs/api/*.html
-index.html
 .env
 
 HELP.md
