@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface ProjectRepository extends MongoRepository <Project,String> {
-    List<Project> findBydirector (Integer director);
-    List<Project> findByintegrantes (String integrantes);
+    List<Project> findBydirector (String director); // usando la variable director de la clase Project se crea un Query que entrega una lista de proyectos
+    List<Project> findByintegrantes (String integrantes); // usando la variable integrantes de la clase Project se crea un Query que entrega una lista de proyectos
 }

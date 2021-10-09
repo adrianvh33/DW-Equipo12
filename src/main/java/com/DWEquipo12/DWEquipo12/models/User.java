@@ -18,10 +18,10 @@ public class User {
     private Integer telefono;
     private String carrera;
     private Date fecha_ingreso;
-    private List<Integer> id_proyectos;
+    private List<String> id_proyectos;
 
 
-    public User(String id, Integer id_usuario, String nombre, String apellido, String correo, String password, String role, Integer telefono, String carrera, Date fecha_ingreso, List<Integer> id_proyectos) {
+    public User(String id, Integer id_usuario, String nombre, String apellido, String correo, String password, String role, Integer telefono, String carrera, Date fecha_ingreso, List<String> id_proyectos) {
         this.id = id;
         this.id_usuario = id_usuario;
         this.nombre = nombre;
@@ -115,11 +115,11 @@ public class User {
         this.fecha_ingreso = fecha_ingreso;
     }
 
-    public List<Integer> getId_proyectos() {
+    public List<String> getId_proyectos() {
         return id_proyectos;
     }
 
-    public void setId_proyectos(List<Integer> id_proyectos) {
+    public void setId_proyectos(List<String> id_proyectos) {
         this.id_proyectos = id_proyectos;
     }
 }
