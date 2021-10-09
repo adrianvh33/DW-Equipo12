@@ -38,4 +38,7 @@ public class UserController {
         user.setId_proyectos(proyecto);
         return userRepository.save(user);
     }
+
+    /* TODO
+     *   Crear GetMapping que muestre todos los usuarios*/
 }

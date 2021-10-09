@@ -49,4 +49,15 @@ public class ProjectController {
         return projectRepository.save(project);
     }
 
+    /* TODO
+    *   Crear GetMapping que muestre todos los proyectos*/
+
+
+    /* TODO
+     *   Crear GetMapping que muestre un proyecto por id*/
+
+
+
+
+
 }
