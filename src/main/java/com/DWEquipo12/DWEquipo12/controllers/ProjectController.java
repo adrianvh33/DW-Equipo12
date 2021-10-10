@@ -1,6 +1,7 @@
 package com.DWEquipo12.DWEquipo12.controllers;
 
 import com.DWEquipo12.DWEquipo12.models.Project;
+import com.DWEquipo12.DWEquipo12.models.User;
 import com.DWEquipo12.DWEquipo12.repositories.ProjectRepository;
 import com.DWEquipo12.DWEquipo12.repositories.UserRepository;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ProjectController {
@@ -68,7 +70,10 @@ public class ProjectController {
 
     /* TODO
      *   Crear GetMapping que muestre un proyecto por id*/
-
+    @GetMapping("/projects/{projectId}")
+    Optional<Project> getProjects(@PathVariable String projectId){
+        return projectRepository.findById(projectId);
+    }
 
 
 
