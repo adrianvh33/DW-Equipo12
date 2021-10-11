@@ -76,6 +76,44 @@ public class ProjectController {
     }
 
 
+    /*
+    * Se edita un proyecto existente
+     */
+    @PutMapping("/editProject/{id}")
+    Project editProject(@PathVariable String id,@RequestBody Project project){
+        Project project2 = projectRepository.findById(id).orElse(null);
+        if (project.getNombre() != null){
+            project2.setNombre(project.getNombre());
+        }
+        if (project.getIntegrantes() != null){
+            project2.setIntegrantes(project.getIntegrantes());
+        }
+        if (project.getDirector() != null){
+            project2.setDirector(project.getDirector());
+        }
+        if (project.getPresupuesto() != null){
+            project2.setPresupuesto(project.getPresupuesto());
+        }
+        if (project.getObjetivos() != null){
+            project2.setObjetivos(project.getObjetivos());
+        }
+        if (project.getEstado() != null){
+            project2.setEstado(project.getEstado());
+        }
+        if (project.getFechas() != null){
+            project2.setFechas(project.getFechas());
+        }
+        if (project.getNotas_desempeno() != null){
+            project2.setNotas_desempeno(project.getNotas_desempeno());
+        }
+        if (project.getEstadoFase()!= null){
+            project2.setEstadoFase(project.getEstadoFase());
+        }
+        if (project.getAvances()!= null){
+            project2.setAvances(project.getAvances());
+        }
+        return projectRepository.save(project2); // se guarda el proyecto
+    }
 
 
 }

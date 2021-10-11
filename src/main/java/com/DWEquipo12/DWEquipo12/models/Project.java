@@ -17,7 +17,8 @@ public class Project {
     private List<String> objetivos;
     private String estado;
     private List<Date> fechas;
-    private List<Fase> fases;
+    private String estadoFase;
+    private List<String> avances;
     private List<String> notas_desempeno;
 
 
@@ -88,19 +89,27 @@ public class Project {
         this.fechas = fechas;
     }
 
-    public List<Fase> getFases() {
-        return fases;
-    }
-
-    public void setFases(List<Fase> fases) {
-        this.fases = fases;
-    }
-
     public List<String> getNotas_desempeno() {
         return notas_desempeno;
     }
 
     public void setNotas_desempeno(List<String> notas_desempeno) {
         this.notas_desempeno = notas_desempeno;
+    }
+
+    public String getEstadoFase() {
+        return estadoFase;
+    }
+
+    public void setEstadoFase(String estadoFase) {
+        this.estadoFase = estadoFase;
+    }
+
+    public List<String> getAvances() {
+        return avances;
+    }
+
+    public void setAvances(List<String> avances) {
+        this.avances = avances;
     }
 }

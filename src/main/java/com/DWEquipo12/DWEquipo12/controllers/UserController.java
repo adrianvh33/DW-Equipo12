@@ -56,4 +56,39 @@ public class UserController {
 
     /* TODO
      *   Crear GetMapping que muestre todos los usuarios*/
+
+
+
+    /*
+    * se edita un usuario
+     */
+    @PutMapping("/editUser/{id}")
+    User editUser (@PathVariable String id,@RequestBody User user){
+        User user2 =  userRepository.findById(id).orElse(null);
+        if (user.getNombre() != null){
+            user2.setNombre(user.getNombre());
+        }
+        if (user.getApellido() != null){
+            user2.setApellido(user.getApellido());
+        }
+        if (user.getCorreo() != null){
+            user2.setCorreo(user.getCorreo());
+        }
+        if (user.getPassword() != null){
+            user2.setPassword(user.getPassword());
+        }
+        if (user.getRole() != null){
+            user2.setRole(user.getRole());
+        }
+        if (user.getTelefono() != null){
+            user2.setTelefono(user.getTelefono());
+        }
+        if (user.getFecha_ingreso() != null){
+            user2.setFecha_ingreso(user.getFecha_ingreso());
+        }
+        if (user.getId_proyectos() != null){
+            user2.setId_proyectos(user.getId_proyectos());
+        }
+        return userRepository.save(user2);
+    }
 }
