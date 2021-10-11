@@ -28,9 +28,7 @@ public class ProjectController {
      */
     @PostMapping("/project") // con un post se pide el cuerpo en formato Json
     Project newProject(@RequestBody Project project){
-        List<Date> fechas=new ArrayList<Date>();
-        fechas.add(new Date()); // se añade la fecha de inicio a una lista
-        project.setFechas(fechas); // se ingresa la lista de fecha al proyecto
+        project.setFecha_inicio(new Date()); // se ingresa la lista de fecha al proyecto
         return projectRepository.save(project); // se guarda el proyecto
     }
 
@@ -100,8 +98,11 @@ public class ProjectController {
         if (project.getEstado() != null){
             project2.setEstado(project.getEstado());
         }
-        if (project.getFechas() != null){
-            project2.setFechas(project.getFechas());
+        if (project.getFecha_inicio() != null){
+            project2.setFecha_inicio(project.getFecha_inicio());
+        }
+        if (project.getFecha_final() != null){
+            project2.setFecha_final(project.getFecha_final());
         }
         if (project.getNotas_desempeno() != null){
             project2.setNotas_desempeno(project.getNotas_desempeno());

@@ -8,7 +8,6 @@ public class User {
 
     @Id
     private String id;
-
     private Integer id_usuario;
     private String nombre;
     private String apellido;
