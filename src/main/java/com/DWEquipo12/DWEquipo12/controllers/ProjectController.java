@@ -28,9 +28,7 @@ public class ProjectController {
      */
     @PostMapping("/project") // con un post se pide el cuerpo en formato Json
     Project newProject(@RequestBody Project project){
-        List<Date> fechas=new ArrayList<Date>();
-        fechas.add(new Date()); // se añade la fecha de inicio a una lista
-        project.setFechas(fechas); // se ingresa la lista de fecha al proyecto
+        project.setFecha_inicio(new Date()); // se ingresa la lista de fecha al proyecto
         return projectRepository.save(project); // se guarda el proyecto
     }
 
@@ -76,6 +74,47 @@ public class ProjectController {
     }
 
 
+    /*
+    * Se edita un proyecto existente
+     */
+    @PutMapping("/editProject/{id}")
+    Project editProject(@PathVariable String id,@RequestBody Project project){
+        Project project2 = projectRepository.findById(id).orElse(null);
+        if (project.getNombre() != null){
+            project2.setNombre(project.getNombre());
+        }
+        if (project.getIntegrantes() != null){
+            project2.setIntegrantes(project.getIntegrantes());
+        }
+        if (project.getDirector() != null){
+            project2.setDirector(project.getDirector());
+        }
+        if (project.getPresupuesto() != null){
+            project2.setPresupuesto(project.getPresupuesto());
+        }
+        if (project.getObjetivos() != null){
+            project2.setObjetivos(project.getObjetivos());
+        }
+        if (project.getEstado() != null){
+            project2.setEstado(project.getEstado());
+        }
+        if (project.getFecha_inicio() != null){
+            project2.setFecha_inicio(project.getFecha_inicio());
+        }
+        if (project.getFecha_final() != null){
+            project2.setFecha_final(project.getFecha_final());
+        }
+        if (project.getNotas_desempeno() != null){
+            project2.setNotas_desempeno(project.getNotas_desempeno());
+        }
+        if (project.getEstadoFase()!= null){
+            project2.setEstadoFase(project.getEstadoFase());
+        }
+        if (project.getAvances()!= null){
+            project2.setAvances(project.getAvances());
+        }
+        return projectRepository.save(project2); // se guarda el proyecto
+    }
 
 
 }
