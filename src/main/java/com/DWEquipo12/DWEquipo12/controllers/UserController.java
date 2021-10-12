@@ -76,11 +76,14 @@ public class UserController {
         user.setFecha_ingreso(new Date()); // se agrega la fecha al usuario
         return userRepository.save(user); // seguarda el usuario
     }
-
-    /* TODO
-     *   Crear GetMapping que muestre todos los usuarios*/
-
-
+    /*
+     *Muestra todos los usuarios
+     */
+    @GetMapping("/allUsers")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        //Esto retorna a JSON o XML with los users
+        return userRepository.findAll();
+    }
 
     /*
     * se edita un usuario
