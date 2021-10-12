@@ -50,18 +50,6 @@ public class ProjectController {
         return integranteProject;
     }
 
-    /*
-    * Se agrega un usuario a un proyecto usando los ids
-     */
-    @GetMapping("/setUser/{projecId}/{userId}")
-    Project setUsers(@PathVariable String projecId,@PathVariable String userId){
-        Project project = projectRepository.findById(projecId).orElse(null); // se encuentra el proyecto con el id
-        List<String> integrantes = new ArrayList<>(project.getIntegrantes()); // se copian los integrantes del proyecto a una lista
-        integrantes.add(userId); // se agrega el nuevo id a la lista
-        project.setIntegrantes(integrantes); // se guarda la lista en el proyectp
-        return projectRepository.save(project); // se guarda el proyecto
-    }
-
     /* TODO
     *   Crear GetMapping que muestre todos los proyectos*/
 
