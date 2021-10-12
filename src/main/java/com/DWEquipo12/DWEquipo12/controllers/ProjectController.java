@@ -36,7 +36,7 @@ public class ProjectController {
     * Se entregan los proyectos por  director
      */
     @GetMapping("/project/byDirector/{directorId}")
-    List<Project> directorProject(@PathVariable String directorId){
+    List<Project> projectByDirector(@PathVariable String directorId){
         List<Project> directorProject = projectRepository.findBydirector(directorId);
         return directorProject;
     }
@@ -57,7 +57,7 @@ public class ProjectController {
     /* TODO
      *   Crear GetMapping que muestre un proyecto por id*/
     @GetMapping("/projects/{projectId}")
-    Optional<Project> getProjects(@PathVariable String projectId){
+    Optional<Project> projectById(@PathVariable String projectId){
         return projectRepository.findById(projectId);
     }
 
