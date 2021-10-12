@@ -62,9 +62,13 @@ public class ProjectController {
         return projectRepository.save(project); // se guarda el proyecto
     }
 
-    /* TODO
-    *   Crear GetMapping que muestre todos los proyectos*/
-
+    /*Muestra todos los usuarios
+     */
+    @GetMapping("/allProjects")
+    public @ResponseBody Iterable<Project> getAllProjects() {
+        //Esto retorna a JSON o XML with los projects
+        return projectRepository.findAll();
+    }
 
     /* TODO
      *   Crear GetMapping que muestre un proyecto por id*/
