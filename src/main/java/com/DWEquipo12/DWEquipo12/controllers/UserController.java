@@ -39,7 +39,7 @@ public class UserController {
     /*
     * Se agrega un id de proyecto a un usuario
      */
-    @GetMapping("/projec2User/{userId}/{projectId}")
+    @PutMapping("/projec2User/{userId}/{projectId}")
     User projec2User(@PathVariable String userId,@PathVariable String projectId){
         User user = userRepository.findById(userId).orElse(null); // se busca el usuario por su id
         List<String> proyectoL = new ArrayList<>(user.getId_proyectos()); // se crea una lista a la que se le copia los proyectos que el usuario ya tiene
