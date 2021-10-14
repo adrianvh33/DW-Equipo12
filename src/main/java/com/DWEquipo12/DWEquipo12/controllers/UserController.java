@@ -118,5 +118,16 @@ public class UserController {
         return userRepository.save(user2);
     }
 
+    @DeleteMapping("/deleteUser/{id}")
+    String deleteUser(@PathVariable String id){
+        User user = userRepository.findById(id).orElse(null);
+        if (user== null){
+            return "El usuario no existe";
+        }else{
+            userRepository.delete(user);
+            return "usuario eliminado";
+        }
+    }
+
 
 }

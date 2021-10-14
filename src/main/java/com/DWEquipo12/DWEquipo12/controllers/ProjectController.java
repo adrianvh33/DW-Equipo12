@@ -118,5 +118,16 @@ public class ProjectController {
         return projectRepository.save(project2); // se guarda el proyecto
     }
 
+    @DeleteMapping("/deleteProject/{id}")
+    String deleteProject(@PathVariable String id){
+        Project project = projectRepository.findById(id).orElse(null);
+        if (project== null){
+            return "El projecto no existe";
+        }else{
+            projectRepository.delete(project);
+            return "Proyecto eliminado";
+        }
+    }
+
 
 }
