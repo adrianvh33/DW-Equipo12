@@ -20,7 +20,7 @@ public class Project {
     private Date fecha_final;
     private String estadoFase;
     private List<String> avances;
-    private List<String> notas_desempeno;
+    private String notas_desempeno;
 
 
     public Project() {
@@ -82,11 +82,11 @@ public class Project {
         this.estado = estado;
     }
 
-    public List<String> getNotas_desempeno() {
+    public String getNotas_desempeno() {
         return notas_desempeno;
     }
 
-    public void setNotas_desempeno(List<String> notas_desempeno) {
+    public void setNotas_desempeno(String notas_desempeno) {
         this.notas_desempeno = notas_desempeno;
     }
 
