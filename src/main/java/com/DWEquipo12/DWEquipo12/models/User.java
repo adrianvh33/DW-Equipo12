@@ -8,7 +8,6 @@ public class User {
 
     @Id
     private String id;
-    private Integer id_usuario;
     private String nombre;
     private String apellido;
     private String correo;
@@ -20,9 +19,8 @@ public class User {
     private List<String> id_proyectos;
 
 
-    public User(String id, Integer id_usuario, String nombre, String apellido, String correo, String password, String role, Integer telefono, String carrera, Date fecha_ingreso, List<String> id_proyectos) {
+    public User(String id, String nombre, String apellido, String correo, String password, String role, Integer telefono, String carrera, Date fecha_ingreso, List<String> id_proyectos) {
         this.id = id;
-        this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -40,14 +38,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Integer getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
     }
 
     public String getNombre() {

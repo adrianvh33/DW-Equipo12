@@ -20,12 +20,6 @@ public class UserController {
     public UserController(UserRepository userRepository,ProjectRepository projectRepository) {
         this.userRepository = userRepository;
         this.projectRepository = projectRepository;
-        List<String> id_proyectos = new ArrayList<>();
-        User newUser01 = new User("001",1144088597,"usuario","prueba1","p1@gmai.com"
-                                 ,"123456","estudiante"
-                                 ,318000, "ingenieralectronica",new Date(),id_proyectos);
-        this.userRepository.save(newUser01);
-
     }
 
     /*
