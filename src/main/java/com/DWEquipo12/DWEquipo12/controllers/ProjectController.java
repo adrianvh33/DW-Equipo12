@@ -1,5 +1,6 @@
 package com.DWEquipo12.DWEquipo12.controllers;
 
+import com.DWEquipo12.DWEquipo12.models.Avance;
 import com.DWEquipo12.DWEquipo12.models.Project;
 import com.DWEquipo12.DWEquipo12.models.User;
 import com.DWEquipo12.DWEquipo12.repositories.ProjectRepository;
@@ -128,6 +129,34 @@ public class ProjectController {
             return "Proyecto eliminado";
         }
     }
+
+    @PutMapping("/addAdvance/{projectId}")
+    Project addAdvance(@PathVariable String projectId,@RequestBody Avance avance){
+        Project project = projectRepository.findById(projectId).orElse(null);
+        List<String> proyectoL = new ArrayList<>(project.getAvances());
+        proyectoL.add(avance.getAvance());
+        project.setAvances(proyectoL);
+        return projectRepository.save(project);
+    }
+
+    @PutMapping("/editAdvance/{projectId}/{indexAvance}")
+    Project editAdvance(@PathVariable String projectId,@PathVariable String indexAvance,@RequestBody Avance avance){
+        Project project = projectRepository.findById(projectId).orElse(null);
+        List<String> proyectoL = new ArrayList<>(project.getAvances());
+        proyectoL.set(Integer.parseInt(indexAvance),avance.getAvance());
+        project.setAvances(proyectoL);
+        return projectRepository.save(project);
+    }
+
+    @DeleteMapping("/deleteAdvance/{projectId}/{indexAvance}")
+    Project deleteAdvance(@PathVariable String projectId,@PathVariable String indexAvance,@RequestBody Avance avance){
+        Project project = projectRepository.findById(projectId).orElse(null);
+        List<String> proyectoL = new ArrayList<>(project.getAvances());
+        proyectoL.remove(Integer.parseInt(indexAvance));
+        project.setAvances(proyectoL);
+        return projectRepository.save(project);
+    }
+
 
 
 }
