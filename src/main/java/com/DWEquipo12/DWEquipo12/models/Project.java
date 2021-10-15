@@ -14,7 +14,7 @@ public class Project {
     private List<String> integrantes ;
     private String director;
     private Integer presupuesto;
-    private List<String> objetivos;
+    private String objetivos;
     private String estado;
     private Date fecha_inicio;
     private Date fecha_final;
@@ -66,11 +66,11 @@ public class Project {
         this.presupuesto = presupuesto;
     }
 
-    public List<String> getObjetivos() {
+    public String getObjetivos() {
         return objetivos;
     }
 
-    public void setObjetivos(List<String> objetivos) {
+    public void setObjetivos(String objetivos) {
         this.objetivos = objetivos;
     }
 
