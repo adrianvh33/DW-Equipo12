@@ -149,7 +149,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/deleteAdvance/{projectId}/{indexAvance}")
-    Project deleteAdvance(@PathVariable String projectId,@PathVariable String indexAvance,@RequestBody Avance avance){
+    Project deleteAdvance(@PathVariable String projectId,@PathVariable String indexAvance){
         Project project = projectRepository.findById(projectId).orElse(null);
         List<String> proyectoL = new ArrayList<>(project.getAvances());
         proyectoL.remove(Integer.parseInt(indexAvance));
