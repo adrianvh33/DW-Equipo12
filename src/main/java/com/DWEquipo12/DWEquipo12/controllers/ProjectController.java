@@ -32,14 +32,29 @@ public class ProjectController {
     @PostMapping("/project") // con un post se pide el cuerpo en formato Json
     Project newProject(@RequestBody Project project){
         project.setFecha_inicio(new Date()); // se ingresa la lista de fecha al proyecto
-        List<String> director = new ArrayList<>(project.getIntegrantes()); // se copian los integrantes del proyecto a una lista
-        director.add(project.getDirector()); // se agrega el nuevo id a la lista
-        project.setIntegrantes(director);
-        User user = userRepository.findById(project.getDirector()).orElse(null);
-        List<String> pList = new ArrayList<>(user.getId_proyectos());
-        pList.add(project.getId_proyecto());
-        user.setId_proyectos(pList);
-        userRepository.save(user);
+        if(project.getIntegrantes().isEmpty()){
+            System.out.println("The List is empty");
+        }else{
+            List<String> integrantes = new ArrayList<>(project.getIntegrantes());
+            if(integrantes != null ){
+                integrantes.add(project.getDirector()); // se agrega el nuevo id a la lista
+                project.setIntegrantes(integrantes);
+            }
+        }
+        try{
+            User user = userRepository.findById(project.getDirector()).orElse(null);
+        if (user != null){
+            List<String> pList = new ArrayList<>();
+            pList.add(project.getId_proyecto());
+            user.setId_proyectos(pList);
+            userRepository.save(user);
+        }
+        }catch(Exception e){
+            System.out.println("algo salio mal");
+            System.out.println(e);
+            System.out.println(project.getDirector());
+            System.out.println(project.getId_proyecto());
+        }
         return projectRepository.save(project); // se guarda el proyecto
     }
 
@@ -66,7 +81,7 @@ public class ProjectController {
      */
     @GetMapping("/setUser/{projecId}/{userId}")
     Project setUsers(@PathVariable String projecId,@PathVariable String userId){
-        Project project = projectRepository.findById(projecId).orElse(null); // se encuentra el proyecto con el id
+        Project project = projectRepository.findById(projecId).orElse(null); // se encuentra el proyecto con el i
         List<String> integrantes = new ArrayList<>(project.getIntegrantes()); // se copian los integrantes del proyecto a una lista
         integrantes.add(userId); // se agrega el nuevo id a la lista
         project.setIntegrantes(integrantes); // se guarda la lista en el proyectp
