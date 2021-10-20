@@ -30,6 +30,9 @@ public class ProjectController {
     @PostMapping("/project") // con un post se pide el cuerpo en formato Json
     Project newProject(@RequestBody Project project){
         project.setFecha_inicio(new Date()); // se ingresa la lista de fecha al proyecto
+        List<String> director = new ArrayList<>(project.getIntegrantes()); // se copian los integrantes del proyecto a una lista
+        director.add(project.getDirector()); // se agrega el nuevo id a la lista
+        project.setIntegrantes(director);
         return projectRepository.save(project); // se guarda el proyecto
     }
 
