@@ -33,6 +33,11 @@ public class ProjectController {
         List<String> director = new ArrayList<>(project.getIntegrantes()); // se copian los integrantes del proyecto a una lista
         director.add(project.getDirector()); // se agrega el nuevo id a la lista
         project.setIntegrantes(director);
+        User user = userRepository.findById(project.getDirector()).orElse(null);
+        List<String> pList = new ArrayList<>(user.getId_proyectos());
+        pList.add(project.getId_proyecto());
+        user.setId_proyectos(pList);
+        userRepository.save(user);
         return projectRepository.save(project); // se guarda el proyecto
     }
 
