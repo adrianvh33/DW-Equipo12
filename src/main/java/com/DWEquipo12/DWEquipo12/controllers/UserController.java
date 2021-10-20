@@ -1,9 +1,11 @@
 package com.DWEquipo12.DWEquipo12.controllers;
 
 import com.DWEquipo12.DWEquipo12.models.Project;
+import com.DWEquipo12.DWEquipo12.models.Token;
 import com.DWEquipo12.DWEquipo12.models.User;
 import com.DWEquipo12.DWEquipo12.repositories.ProjectRepository;
 import com.DWEquipo12.DWEquipo12.repositories.UserRepository;
+import netscape.javascript.JSObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -124,4 +126,11 @@ public class UserController {
     }
 
 
+
+    @GetMapping("/testToken")
+    Token testToken (){
+        Token  token = new Token();
+        token.setToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2MzQ0MDA3NjMsImV4cCI6MTY5NzQ3Mjc2MywiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsImNvcnJlbyI6IkpvaG5ueSIsInBhc3N3b3JkIjoiUm9ja2V0In0.-UabNSFvbZJe-3E8wVBriYIt4yMpQ4roVbDApuDLkmk");
+       return token;
+    }
 }

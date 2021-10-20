@@ -13,13 +13,13 @@ public class User {
     private String correo;
     private String password;
     private String role;
-    private Integer telefono;
+    private String telefono;
     private String carrera;
     private Date fecha_ingreso;
     private List<String> id_proyectos;
 
 
-    public User(String id, String nombre, String apellido, String correo, String password, String role, Integer telefono, String carrera, Date fecha_ingreso, List<String> id_proyectos) {
+    public User(String id, String nombre, String apellido, String correo, String password, String role, String telefono, String carrera, Date fecha_ingreso, List<String> id_proyectos) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -80,11 +80,11 @@ public class User {
         this.role = role;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
