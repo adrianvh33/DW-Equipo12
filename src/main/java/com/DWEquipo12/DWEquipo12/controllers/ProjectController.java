@@ -17,10 +17,12 @@ public class ProjectController {
 
     private final UserRepository userRepository;
     private final ProjectRepository projectRepository;
+    private final UserController userController;
 
-    public ProjectController(UserRepository userRepository, ProjectRepository projectRepository){
+    public ProjectController(UserRepository userRepository, ProjectRepository projectRepository,UserController userController){
         this.userRepository = userRepository;
         this.projectRepository = projectRepository;
+        this.userController = userController;
     }
 
 
@@ -133,6 +135,11 @@ public class ProjectController {
         if (project== null){
             return "El projecto no existe";
         }else{
+            List<String> integrantes = new ArrayList<>(project.getIntegrantes());
+            String projectID = project.getId_proyecto();
+            for (String integrante :integrantes){
+                userController.reProject(integrante,projectID);
+            }
             projectRepository.delete(project);
             return "Proyecto eliminado";
         }
