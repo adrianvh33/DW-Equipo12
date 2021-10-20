@@ -120,6 +120,18 @@ public class UserController {
         if (user== null){
             return "El usuario no existe";
         }else{
+            List<String> projects = user.getId_proyectos();
+            if (user.getRole() == "director"){
+                for(String idProject:projects ){
+                   Project p = projectRepository.findById(idProject).orElse(null);
+                   p.setDirector("Sin director");
+                   projectRepository.save(p);
+                }
+            }         ;
+            String userID = user.getId();
+            for (String idProjecto :projects){
+               reProject(userID,idProjecto);
+            }
             userRepository.delete(user);
             return "usuario eliminado";
         }
