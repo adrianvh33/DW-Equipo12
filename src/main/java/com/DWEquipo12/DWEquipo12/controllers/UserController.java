@@ -38,15 +38,37 @@ public class UserController {
     @PutMapping("/projec2User/{userId}/{projectId}")
     User projec2User(@PathVariable String userId,@PathVariable String projectId){
         User user = userRepository.findById(userId).orElse(null); // se busca el usuario por su id
-        List<String> proyectoL = new ArrayList<>(user.getId_proyectos()); // se crea una lista a la que se le copia los proyectos que el usuario ya tiene
-        proyectoL.add(projectId); // Se agrega el nuevo id de pryecto a la lista
-        user.setId_proyectos(proyectoL); //Se agrega la lista al usuario
-        Project project = projectRepository.findById(projectId).orElse(null);
-        List<String> userL = new ArrayList<>(project.getIntegrantes());
-        userL.add(userId);
-        project.setIntegrantes(userL);
-        projectRepository.save(project);
-        return userRepository.save(user); // se guarda el usuario
+
+        if (user ==null){
+            return null;
+        }else {
+                if(user.getId_proyectos() != null || !user.getId_proyectos().isEmpty()) {
+                List<String> proyectoL = new ArrayList<>(user.getId_proyectos());
+                System.out.println("proyectoL");
+                System.out.println(proyectoL);
+                proyectoL.add(projectId); // Se agrega el nuevo id de pryecto a la lista
+                user.setId_proyectos(proyectoL); //Se agrega la lista al usuario
+            } else {
+                List<String> proyectoL = new ArrayList<>();
+                proyectoL.add(projectId); // Se agrega el nuevo id de pryecto a la lista
+                user.setId_proyectos(proyectoL); //Se agrega la lista al usuario
+            }
+            Project project = projectRepository.findById(projectId).orElse(null);
+            if (project != null) {
+                if (project.getIntegrantes() != null || !project.getIntegrantes().isEmpty()) {
+                    List<String> userL = new ArrayList<>(project.getIntegrantes());
+                    userL.add(userId);
+                    project.setIntegrantes(userL);
+                    projectRepository.save(project);
+                } else {
+                    List<String> userL = new ArrayList<>();
+                    userL.add(userId);
+                    project.setIntegrantes(userL);
+                    projectRepository.save(project);
+                }
+            }
+            return userRepository.save(user); // se guarda el usuario
+        }
     }
 
 
