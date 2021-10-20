@@ -41,19 +41,20 @@ public class ProjectController {
                 project.setIntegrantes(integrantes);
             }
         }
-        try{
-            User user = userRepository.findById(project.getDirector()).orElse(null);
+
+        User user = userRepository.findById(project.getDirector()).orElse(null);
         if (user != null){
-            List<String> pList = new ArrayList<>();
-            pList.add(project.getId_proyecto());
-            user.setId_proyectos(pList);
-            userRepository.save(user);
-        }
-        }catch(Exception e){
-            System.out.println("algo salio mal");
-            System.out.println(e);
-            System.out.println(project.getDirector());
-            System.out.println(project.getId_proyecto());
+            if (user.getId_proyectos() == null ){
+                List<String> pList = new ArrayList<>();
+                pList.add(project.getId_proyecto());
+                user.setId_proyectos(pList);
+                userRepository.save(user);
+            }else {
+                List<String> pList = new ArrayList<>(user.getId_proyectos());
+                pList.add(project.getId_proyecto());
+                user.setId_proyectos(pList);
+                userRepository.save(user);
+            }
         }
         return projectRepository.save(project); // se guarda el proyecto
     }
