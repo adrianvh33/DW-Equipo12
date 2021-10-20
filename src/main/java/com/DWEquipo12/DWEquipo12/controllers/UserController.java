@@ -116,22 +116,27 @@ public class UserController {
 
     @DeleteMapping("/deleteUser/{id}")
     String deleteUser(@PathVariable String id){
+        System.out.println("entro aqui");
         User user = userRepository.findById(id).orElse(null);
         if (user== null){
             return "El usuario no existe";
         }else{
+            System.out.println("entro aqui");
             List<String> projects = user.getId_proyectos();
-            if (user.getRole() == "director"){
-                for(String idProject:projects ){
-                   Project p = projectRepository.findById(idProject).orElse(null);
-                   p.setDirector("Sin director");
-                   projectRepository.save(p);
-                }
-            }         ;
-            String userID = user.getId();
-            for (String idProjecto :projects){
-               reProject(userID,idProjecto);
-            }
+            if (projects != null){
+                if (user.getRole() == "director"){
+                    for(String idProject:projects ){
+                       Project p = projectRepository.findById(idProject).orElse(null);
+                       if(p != null){
+                           p.setDirector("Sin director");
+                           projectRepository.save(p);
+                           }
+                        }
+                    }       ;
+                String userID = user.getId();
+                for (String idProjecto :projects){
+                   reProject(userID,idProjecto);
+                }}
             userRepository.delete(user);
             return "usuario eliminado";
         }
